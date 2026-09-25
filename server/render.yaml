@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: marketgo-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start
+    envVars:
+      - key: MONGO_URL
+        sync: false
+      - key: JWT_CODE
+        sync: false
+      - key: PORT
+        value: 5252
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
