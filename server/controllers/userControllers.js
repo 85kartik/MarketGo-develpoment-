@@ -69,7 +69,6 @@ const registerController = async (req, res) => {
       password: hashedPassword,
       phone,
       address,
-      role: finalRole,
 
     });
 

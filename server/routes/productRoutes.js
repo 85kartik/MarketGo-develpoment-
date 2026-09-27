@@ -48,4 +48,4 @@ router.delete(
   deleteProductController
 );
 
-module.exports = router;``
+module.exports = router;
