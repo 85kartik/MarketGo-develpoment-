@@ -16,8 +16,13 @@ const registerController = async (req, res) => {
       password,
       phone,
       address,
+      role,
     } = req.body;
 
+    // Only "user" and "vendor" can be chosen at signup.
+    // "admin" must never be assignable from a public request body.
+    const allowedRoles = ["user", "vendor"];
+    const finalRole = allowedRoles.includes(role) ? role : "user";
 
     if (!name) {
       return res.status(400).send({
@@ -64,6 +69,7 @@ const registerController = async (req, res) => {
       password: hashedPassword,
       phone,
       address,
+      role: finalRole,
 
     });
 

@@ -11,7 +11,7 @@ const {
 
 const {
   requireSignIn,
-  isAdmin,
+  isVendor,
 } = require("../middleware/authMiddleware");
 
 const upload = require("../middleware/uploadMiddleware");
@@ -20,7 +20,7 @@ const upload = require("../middleware/uploadMiddleware");
 router.post(
   "/create-product",
   requireSignIn,
-  isAdmin,
+  isVendor,
   upload.single("photo"),
   createProductController
 );
@@ -35,7 +35,7 @@ router.get("/:idOrSlug", getProductController);
 router.put(
   "/update/:id",
   requireSignIn,
-  isAdmin,
+  isVendor,
   upload.single("photo"),
   updateProductController
 );
@@ -44,8 +44,8 @@ router.put(
 router.delete(
   "/delete/:id",
   requireSignIn,
-  isAdmin,
+  isVendor,
   deleteProductController
 );
 
-module.exports = router;
+module.exports = router;``
